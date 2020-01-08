@@ -33,14 +33,13 @@ jobs:
       #     command: /tmp/workspace/code/authgcloud.sh
       - run:
           name: json file
-          command: echo $GCLOUD_SERVICE_KEY > ${HOME}/stalwart-city-264503-f076417ce727.json
+          command: echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
       - run:
           name: config initialize
-          command: gcloud auth activate-service-account --key-file=${HOME}/stalwart-city-264503-f076417ce727.json
+          command: gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
       - run:
           name: config initialize
           command: gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
-
       - run:
           name: list files
           command: ls /tmp/workspace/code
