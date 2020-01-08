@@ -13,6 +13,9 @@ jobs:
       - run:
           name: Copy all to the workspace directory
           command: cp -r * /tmp/workspace/code
+      - run:
+          name: list files
+          command: cd /tmp/workspace/code && ls
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
