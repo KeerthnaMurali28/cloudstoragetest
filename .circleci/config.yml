@@ -47,7 +47,7 @@ jobs:
       #     name: deploy
       #     command: /tmp/workspace/code/deploy.sh
       - run:
-          name: print copying
+          name: start copying
           command: echo "Copying build to Storage"
       - run:
           name: Folder Access
