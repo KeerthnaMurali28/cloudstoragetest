@@ -28,9 +28,9 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      # - run:
-      #     name: Initialize gcloud
-      #     command: /tmp/workspace/code/authgcloud.sh
+      - run:
+          name: Initialize gcloud
+          command: /tmp/workspace/code/authgcloud.sh
       - run:
           name: list files
           command: ls /tmp/workspace/code
