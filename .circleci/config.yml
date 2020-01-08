@@ -27,7 +27,7 @@ jobs:
           STORAGE_BUCKET: testkeerthu
     steps:
       - attach_workspace:
-          at: /tmp/workspace/code
+          at: /tmp/workspace
       # - run:
       #     name: Initialize gcloud
       #     command: /tmp/workspace/code/authgcloud.sh
