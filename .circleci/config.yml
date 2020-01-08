@@ -4,7 +4,7 @@ defaults:
 jobs:
     build:
     docker:
-      - image: circleci/node:chakracore-8.11.1
+      - image: circleci/ruby:2.4.2-keer-8.11.1
     steps:
       - checkout
       - run:
