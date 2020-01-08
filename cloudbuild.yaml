@@ -1,0 +1,13 @@
+steps:
+- name: gcr.io/cloud-builders/gcloud
+  args: [
+      'beta',
+      'functions',
+      'deploy','${_NAME}',
+      '--source=https://gs/bucketname,
+      '--trigger-topic=${_TOPIC}',
+      '--region=us-east1',
+      '--entry-point=audit',
+      '--runtime=nodejs10',
+      '--project=${_PROJECT_ID}'
+  ]
