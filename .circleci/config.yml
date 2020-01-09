@@ -54,7 +54,7 @@ jobs:
           command: gsutil defacl ch -u AllUsers:READER gs://$STORAGE_BUCKET
       - run:
           name: Copy contents
-          command: gsutil rsync -R /tmp/workspace/code.tar.gz gs://$STORAGE_BUCKET
+          command: gsutil rsync -R /tmp/workspace/code gs://$STORAGE_BUCKET
       - run:
           name: Compress the contents
           command: gsutil tar -czvf code.tar gs://$STORAGE_BUCKET/*
