@@ -28,15 +28,15 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      # - run:
-      #     name: Initialize gcloud
-      #     command: /tmp/workspace/code/authgcloud.sh
+      - run:
+          name: Initialize gcloud
+          command: /tmp/workspace/code/authgcloud.sh
       - run:
           name: list files
           command: ls /tmp/workspace/code
-      # - run:
-      #     name: deploy
-      #     command: /tmp/workspace/code/deploy.sh
+      - run:
+          name: deploy
+          command: /tmp/workspace/code/deploy.sh
       - run:
           name: print copying
           command: echo "Copying build to Storage"
