@@ -53,11 +53,11 @@ jobs:
           name: Folder Access
           command: gsutil defacl ch -u AllUsers:READER gs://$STORAGE_BUCKET
       - run:
-          name: Archive the Contents to the Bucket
-          command: tar -czvf code.tar.gz /tmp/workspace/code
-      - run:
           name: Copy contents
           command: gsutil rsync -R /tmp/workspace/code.tar.gz gs://$STORAGE_BUCKET
+      - run:
+          name: Compress the contents
+          command: gsutil tar -czvf code.tar gs://$STORAGE_BUCKET/*
       - run:
           name: print copying
           command: echo "Copying Completed"
