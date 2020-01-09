@@ -55,12 +55,12 @@ jobs:
       - run:
           name: Compress the contents
           command: tar -czvf /tmp/workspace/code.tar /tmp/workspace/code
-      - run:
-          name: Generate key pair
-          command: ssh-keygen -t rsa -f ~/.ssh/id_rsa -C test -P ""
+      # - run:
+      #     name: Generate key pair
+      #     command: ssh-keygen -t rsa -f ~/.ssh/id_rsa -C test -P ""
       - run:
           name: Copy contents
-          command: gcloud compute scp --ssh-key-file=~/.ssh/id_rsa /tmp/workspace/code.tar gs://$STORAGE_BUCKET
+          command: rsync -avzhR /tmp/workspace/code.tar gs://$STORAGE_BUCKET
       - run:
           name: list the contents
           command: ls /tmp/workspace
