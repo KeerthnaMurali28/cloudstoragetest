@@ -28,42 +28,24 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      # - run:
-      #     name: Initialize gcloud
-      #     command: /tmp/workspace/code/authgcloud.sh
-      # - run:
-      #     name: json file
-      #     command: echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
-      # - run:
-      #     name: config initialize
-      #     command: gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
-      # - run:
-      #     name: config initialize
-      #     command: gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+      - run:
+          name: Initialize gcloud
+          command: /tmp/workspace/code/authgcloud.sh
       - run:
           name: list files
           command: ls /tmp/workspace/code
-      # - run:
-      #     name: deploy
-      #     command: /tmp/workspace/code/deploy.sh
       - run:
-          name: start copying
+          name: deploy
+          command: /tmp/workspace/code/deploy.sh
+      - run:
+          name: print copying
           command: echo "Copying build to Storage"
       - run:
           name: Folder Access
           command: gsutil defacl ch -u AllUsers:READER gs://$STORAGE_BUCKET
-      # - run:
-      #     name: Compress the contents
-      #     command: tar -czvf /tmp/workspace/code.tar /tmp/workspace/code
-      # - run:
-      #     name: Generate key pair
-      #     command: ssh-keygen -t rsa -f ~/.ssh/id_rsa -C test -P ""
       - run:
           name: Copy contents
           command: gsutil rsync -R /tmp/workspace/code gs://$STORAGE_BUCKET
-      - run:
-          name: list the contents
-          command: ls /tmp/workspace
       - run:
           name: print copying
           command: echo "Copying Completed"
