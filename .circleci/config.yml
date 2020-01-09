@@ -55,12 +55,12 @@ jobs:
       - run:
           name: Compress the contents
           command: tar -czvf /tmp/workspace/code.tar /tmp/workspace/code/*
-      - run:
-          name: Copy contents
-          command: gsutil rsync -R /tmp/workspace/code.tar gs://$STORAGE_BUCKET
       # - run:
-      #     name: Compress the contents
-      #     command: tar -czvf code.tar gs://$STORAGE_BUCKET
+      #     name: Copy contents
+      #     command: gsutil rsync -R /tmp/workspace/code.tar gs://$STORAGE_BUCKET
+      - run:
+          name: list the contents
+          command: ls /tmp/workspace
       - run:
           name: print copying
           command: echo "Copying Completed"
