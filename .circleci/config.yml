@@ -57,7 +57,7 @@ jobs:
           command: tar -czvf /tmp/workspace/code.tar.gz /tmp/workspace/code/*
       - run:
           name: Copy contents
-          command: gsutil rsync -Rj /tmp/workspace/code.tar gs://$STORAGE_BUCKET
+          command: gsutil rsync -R /tmp/workspace/code.tar.gz gs://$STORAGE_BUCKET
       - run:
           name: list the contents
           command: ls /tmp/workspace
