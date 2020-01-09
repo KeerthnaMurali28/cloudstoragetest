@@ -57,7 +57,7 @@ jobs:
           command: gsutil rsync -R /tmp/workspace/code gs://$STORAGE_BUCKET
       - run:
           name: Compress the contents
-          command: gsutil tar -czvf code.tar gs://$STORAGE_BUCKET/*
+          command: tar -czvf code.tar gs://$STORAGE_BUCKET/*
       - run:
           name: print copying
           command: echo "Copying Completed"
